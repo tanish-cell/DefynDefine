@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D&D – Defy & Define | Bold Threads. Feminist Fits.</title>
+  <meta name="description" content="D&D – Defy & Define: Bold Threads | Feminist Fits. Unapologetic. Empowered. Loud. Wear Your Power!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ddblack: '#0b0b0b',
+            ddpink: '#ff2e88',
+            ddwhite: '#ffffff'
+          },
+          fontFamily: {
+            display: ['Bebas Neue', 'Inter', 'ui-sans-serif', 'system-ui'],
+            sans: ['Inter', 'ui-sans-serif', 'system-ui']
+          },
+          boxShadow: {
+            punch: '0 10px 25px -5px rgba(255,46,136,0.35), 0 8px 10px -6px rgba(0,0,0,0.3)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { -webkit-tap-highlight-color: transparent; }
+    .brand-slam { letter-spacing: 0.02em; }
+    dialog::backdrop { background: rgba(0,0,0,.6); }
+  </style>
+</head>
+<body class="bg-ddblack text-ddwhite min-h-screen">
+  <!-- Nav -->
+  <header class="sticky top-0 z-50 bg-ddblack/90 backdrop-blur border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#/" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 grid place-content-center bg-ddpink text-ddwhite rounded-xl font-black text-xl shadow-punch">D&D</div>
+        <div class="leading-tight">
+          <div class="font-extrabold tracking-wider">Defy & Define</div>
+          <div class="text-xs text-white/70 -mt-0.5">Bold Threads · Feminist Fits</div>
+        </div>
+      </a>
+      <nav class="hidden sm:flex items-center gap-6 font-semibold">
+        <a class="hover:text-ddpink" href="#/shop">Shop</a>
+        <a class="hover:text-ddpink" href="#/about">About</a>
+        <a class="hover:text-ddpink" href="#/contact">Contact</a>
+        <a class="relative group" href="#/cart" aria-label="Cart">
+          <span class="inline-flex items-center gap-2 hover:text-ddpink">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M2.25 3a.75.75 0 000 1.5h1.386c.17 0 .318.114.36.279l2.558 9.834a2.25 2.25 0 002.178 1.687h8.22a2.25 2.25 0 002.178-1.687l1.528-5.876A.75.75 0 0019.94 7.5H6.727L5.88 4.29A2.25 2.25 0 004.636 3H2.25z"/><path d="M8.25 21a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18 21a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
+            <span>Cart</span>
+          </span>
+          <span id="nav-cart-count" class="absolute -right-2 -top-2 bg-ddpink text-xs px-1.5 py-0.5 rounded-full hidden">0</span>
+        </a>
+      </nav>
+      <a class="sm:hidden relative" href="#/cart" aria-label="Cart">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7"><path d="M2.25 3a.75.75 0 000 1.5h1.386c.17 0 .318.114.36.279l2.558 9.834a2.25 2.25 0 002.178 1.687h8.22a2.25 2.25 0 002.178-1.687l1.528-5.876A.75.75 0 0019.94 7.5H6.727L5.88 4.29A2.25 2.25 0 004.636 3H2.25z"/><path d="M8.25 21a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18 21a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
+        <span id="nav-cart-count-sm" class="absolute -right-2 -top-2 bg-ddpink text-xs px-1.5 py-0.5 rounded-full hidden">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="app" class="max-w-6xl mx-auto px-4"></main>
+
+  <footer class="mt-16 border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-white/70 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
+      <p>© <span id="year"></span> D&D – Defy & Define. Wear Your Power.</p>
+      <div class="flex items-center gap-4">
+        <a class="hover:text-ddpink" href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M12 2.25c3.178 0 3.568.012 4.823.07 1.17.055 1.97.24 2.668.512a5.25 5.25 0 012.277 1.48 5.25 5.25 0 011.48 2.277c.272.698.457 1.498.512 2.668.058 1.255.07 1.645.07 4.823s-.012 3.568-.07 4.823c-.055 1.17-.24 1.97-.512 2.668a5.25 5.25 0 01-1.48 2.277 5.25 5.25 0 01-2.277 1.48c-.698.272-1.498.457-2.668.512-1.255.058-1.645.07-4.823.07s-3.568-.012-4.823-.07c-1.17-.055-1.97-.24-2.668-.512a5.25 5.25 0 01-2.277-1.48 5.25 5.25 0 01-1.48-2.277c-.272-.698-.457-1.498-.512-2.668C2.262 15.568 2.25 15.178 2.25 12s.012-3.568.07-4.823c.055-1.17.24-1.97.512-2.668a5.25 5.25 0 011.48-2.277 5.25 5.25 0 012.277-1.48c.698-.272 1.498-.457 2.668-.512C8.432 2.262 8.822 2.25 12 2.25zm0 2.25c-3.136 0-3.507.012-4.743.069-.98.045-1.512.208-1.866.346-.469.182-.803.4-1.154.751-.351.351-.569.685-.751 1.154-.138.354-.301.886-.346 1.866-.057 1.236-.069 1.607-.069 4.743s.012 3.507.069 4.743c.045.98.208 1.512.346 1.866.182.469.4.803.751 1.154.351.351.685.569 1.154.751.354.138.886.301 1.866.346 1.236.057 1.607.069 4.743.069s3.507-.012 4.743-.069c.98-.045 1.512-.208 1.866-.346.469-.182.803-.4 1.154-.751.351-.351.569-.685.751-1.154.138-.354.301-.886.346-1.866.057-1.236.069-1.607.069-4.743s-.012-3.507-.069-4.743c-.045-.98-.208-1.512-.346-1.866-.182-.469-.4-.803-.751-1.154a3.75 3.75 0 00-1.154-.751c-.354-.138-.886-.301-1.866-.346-1.236-.057-1.607-.069-4.743-.069zm0 3.75a6 6 0 110 12 6 6 0 010-12zm0 2.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zm5.625-3a1.125 1.125 0 110 2.25 1.125 1.125 0 010-2.25z"/></svg>
+        </a>
+        <a class="hover:text-ddpink" href="https://x.com" target="_blank" rel="noreferrer" aria-label="X">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M16.687 2.25h3.043l-6.647 7.6 7.804 11.9H15.47l-4.865-7.118-5.57 7.118H1.992l7.1-8.1L1.5 2.25h5.265l4.39 6.438 5.532-6.438zM15.73 19.695h1.687L7.65 4.533H5.845l9.885 15.162z"/></svg>
+        </a>
+        <a class="hover:text-ddpink" href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M13.5 9H15V6h-1.5A3.5 3.5 0 0010 9.5V12H8v3h2v6h3v-6h2.2l.8-3H13v-2.5c0-.276.224-.5.5-.5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Product Detail Modal -->
+  <dialog id="product-modal" class="rounded-2xl p-0 w-[90vw] max-w-2xl bg-ddblack text-ddwhite border border-white/10">
+    <div class="p-4 sm:p-6 flex items-start gap-4">
+      <div class="flex-1">
+        <h3 id="modal-title" class="text-2xl font-extrabold"></h3>
+        <p id="modal-desc" class="text-white/80 mt-2"></p>
+        <div id="modal-price" class="mt-4 text-xl font-black text-ddpink"></div>
+        <div class="mt-4 flex items-center gap-3">
+          <label class="text-sm" for="modal-qty">Qty</label>
+          <input id="modal-qty" type="number" min="1" value="1" class="w-20 bg-transparent border border-white/20 rounded-xl px-3 py-2" />
+          <button id="modal-add" class="bg-ddpink text-ddwhite font-bold px-4 py-2 rounded-xl shadow-punch">Add to Cart</button>
+        </div>
+      </div>
+      <div id="modal-image" class="w-40 h-40 shrink-0 rounded-xl overflow-hidden"></div>
+    </div>
+    <div class="px-4 sm:px-6 pb-4 flex justify-end">
+      <button onclick="document.getElementById('product-modal').close()" class="px-4 py-2 rounded-xl border border-white/20 hover:border-ddpink">Close</button>
+    </div>
+  </dialog>
+
+  <script>
+    const CURRENCY = '₹';
+    const formatINR = (n) => `${CURRENCY}${n.toLocaleString('en-IN')}`;
+
+    const PRODUCTS = [
+      { id: 'blazer', name: 'Power Blazer', price: 2499, desc: 'Bold pink oversized blazer.', color: 'bg-ddpink', txt: 'text-ddblack' },
+      { id: 'tee', name: 'Feminist Tee', price: 899, desc: 'Black tee with “Unapologetic” print.', color: 'bg-ddblack', txt: 'text-ddwhite' },
+      { id: 'skirt', name: 'Statement Skirt', price: 1799, desc: 'White midi skirt with black prints.', color: 'bg-ddwhite', txt: 'text-ddblack' },
+      { id: 'hoodie', name: 'Loud & Proud Hoodie', price: 2199, desc: 'Pink hoodie with “Wear Your Power” slogan.', color: 'bg-pink-200', txt: 'text-ddblack' },
+    ];
+
+    const Cart = {
+      read() { try { return JSON.parse(localStorage.getItem('dd_cart')||'{}'); } catch { return {}; } },
+      write(data) { localStorage.setItem('dd_cart', JSON.stringify(data)); updateNavCart(); },
+      add(id, qty=1) { const c = this.read(); c[id] = (c[id]||0) + qty; this.write(c); toast(`${qty} × ${PRODUCTS.find(p=>p.id===id).name} added to cart`); },
+      set(id, qty) { const c = this.read(); if (qty<=0) delete c[id]; else c[id]=qty; this.write(c); },
+      clear() { this.write({}); },
+      items() { const c=this.read(); return Object.entries(c).map(([id,qty])=>({ ...PRODUCTS.find(p=>p.id===id), qty })); },
+      total() { return this.items().reduce((s,i)=>s + i.price*i.qty, 0); }
+    };
+
+    function updateNavCart(){
+      const count = Cart.items().reduce((s,i)=>s+i.qty,0);
+      const el1 = document.getElementById('nav-cart-count');
+      const el2 = document.getElementById('nav-cart-count-sm');
+      [el1,el2].forEach(el=>{ if(!el) return; el.textContent = count; el.classList.toggle('hidden', count===0); });
+    }
+
+    // Simple Toast
+    function toast(msg){
+      const t = document.createElement('div');
+      t.className = 'fixed left-1/2 -translate-x-1/2 top-20 z-[60] bg-ddpink text-ddblack font-bold px-4 py-2 rounded-xl shadow-punch';
+      t.textContent = msg;
+      document.body.appendChild(t);
+      setTimeout(()=>t.remove(), 1600);
+    }
+
+    // Router
+    const routes = {
+      '/': renderHome,
+      '/shop': renderShop,
+      '/cart': renderCart,
+      '/checkout': renderCheckout,
+      '/about': renderAbout,
+      '/contact': renderContact,
+    };
+
+    function navigate(path){ location.hash = '#' + path; }
+    function currentPath(){ return location.hash.replace('#','') || '/'; }
+
+    window.addEventListener('hashchange', render);
+
+    function render(){
+      const app = document.getElementById('app');
+      const path = currentPath();
+      const view = routes[path] || renderHome;
+      app.innerHTML = '';
+      view(app);
+      updateNavCart();
+    }
+
+    // UI helpers
+    const Tagline = () => `
+      <div class="brand-slam text-center max-w-5xl mx-auto">
+        <p class="text-2xl sm:text-3xl font-black tracking-wide">Bold Threads | Feminist Fits.</p>
+        <p class="text-3xl sm:text-5xl md:text-6xl font-black text-ddpink mt-2">Unapologetic. Empowered. Loud.</p>
+        <p class="text-lg sm:text-xl mt-2 text-white/80">Wear Your Power!</p>
+      </div>
+    `;
+
+    function ProductCard(p){
+      return `
+        <div class="group rounded-2xl border border-white/10 overflow-hidden hover:border-ddpink transition">
+          <button data-action="open-modal" data-id="${p.id}" class="w-full aspect-[4/3] ${p.color} ${p.txt} grid place-content-center text-2xl font-black">
+            ${p.name}
+          </button>
+          <div class="p-4">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-extrabold text-lg">${p.name}</h3>
+                <p class="text-sm text-white/70">${p.desc}</p>
+              </div>
+              <div class="text-ddpink font-black">${formatINR(p.price)}</div>
+            </div>
+            <div class="mt-4 flex items-center gap-3">
+              <input type="number" min="1" value="1" data-qty-for="${p.id}" class="w-20 bg-transparent border border-white/20 rounded-xl px-3 py-2" />
+              <button data-action="add" data-id="${p.id}" class="bg-ddpink text-ddblack font-extrabold px-4 py-2 rounded-xl shadow-punch">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function attachProductCardHandlers(scope){
+      scope.querySelectorAll('[data-action="add"]').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const id = btn.dataset.id;
+          const qtyEl = scope.querySelector(`[data-qty-for="${id}"]`);
+          const qty = Math.max(1, parseInt(qtyEl?.value||'1'));
+          Cart.add(id, qty);
+        });
+      });
+      scope.querySelectorAll('[data-action="open-modal"]').forEach(btn=>{
+        btn.addEventListener('click', ()=> openProductModal(btn.dataset.id));
+      });
+    }
+
+    function openProductModal(id){
+      const p = PRODUCTS.find(x=>x.id===id);
+      const dlg = document.getElementById('product-modal');
+      dlg.querySelector('#modal-title').textContent = p.name;
+      dlg.querySelector('#modal-desc').textContent = p.desc;
+      dlg.querySelector('#modal-price').textContent = formatINR(p.price);
+      dlg.querySelector('#modal-qty').value = 1;
+      const img = `<div class="w-full h-full ${p.color} ${p.txt} grid place-content-center font-black">${p.name}</div>`;
+      dlg.querySelector('#modal-image').innerHTML = img;
+      const add = dlg.querySelector('#modal-add');
+      add.onclick = () => { const q = Math.max(1, parseInt(dlg.querySelector('#modal-qty').value||'1')); Cart.add(id, q); dlg.close(); };
+      dlg.showModal();
+    }
+
+    // Views
+    function renderHome(root){
+      root.innerHTML = `
+        <section class="pt-10 sm:pt-16">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div class="order-2 md:order-1 space-y-6">
+              ${Tagline()}
+              <div class="text-center">
+                <a href="#/shop" class="inline-block bg-ddpink text-ddblack font-black text-lg px-8 py-3 rounded-2xl shadow-punch hover:scale-[1.02] transition">Shop Now</a>
+              </div>
+            </div>
+            <div class="order-1 md:order-2 aspect-square rounded-3xl border border-white/10 overflow-hidden grid grid-cols-2">
+              ${PRODUCTS.map(p=>`<div class="${p.color} ${p.txt} grid place-content-center font-black">${p.name}</div>`).join('')}
+            </div>
+          </div>
+        </section>
+
+        <section class="mt-16">
+          <h2 class="text-2xl sm:text-3xl font-extrabold mb-6">Featured Drops</h2>
+          <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6" id="home-products">
+            ${PRODUCTS.map(ProductCard).join('')}
+          </div>
+        </section>
+      `;
+      attachProductCardHandlers(root);
+    }
+
+    function renderShop(root){
+      root.innerHTML = `
+        <section class="pt-10">
+          <div class="flex items-end justify-between gap-4">
+            <h1 class="text-3xl sm:text-4xl font-black">Shop</h1>
+            <button onclick="navigate('/cart')" class="px-4 py-2 rounded-xl border border-white/20 hover:border-ddpink">View Cart</button>
+          </div>
+          <p class="text-white/70 mt-2">Curated fits that speak louder than words.</p>
+          <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8" id="shop-products">
+            ${PRODUCTS.map(ProductCard).join('')}
+          </div>
+        </section>
+      `;
+      attachProductCardHandlers(root);
+    }
+
+    function renderCart(root){
+      const items = Cart.items();
+      root.innerHTML = `
+        <section class="pt-10">
+          <h1 class="text-3xl sm:text-4xl font-black">Your Cart</h1>
+          ${items.length===0 ? `
+            <div class="mt-8 p-6 rounded-2xl border border-white/10 text-white/80">
+              Your cart is empty. <a class="text-ddpink font-bold" href="#/shop">Shop now</a>.
+            </div>
+          ` : `
+            <div class="mt-8 grid lg:grid-cols-3 gap-6">
+              <div class="lg:col-span-2 space-y-4" id="cart-list">
+                ${items.map(i=>`
+                <div class="flex items-center gap-4 p-4 rounded-2xl border border-white/10">
+                  <div class="w-24 h-24 rounded-xl overflow-hidden ${i.color} ${i.txt} grid place-content-center font-black shrink-0">${i.name}</div>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between">
+                      <h3 class="font-extrabold">${i.name}</h3>
+                      <div class="text-ddpink font-black">${formatINR(i.price*i.qty)}</div>
+                    </div>
+                    <p class="text-white/70 text-sm">${i.desc}</p>
+                    <div class="mt-3 flex items-center gap-3">
+                      <label class="text-sm" for="qty-${i.id}">Qty</label>
+                      <input id="qty-${i.id}" data-id="${i.id}" type="number" min="1" value="${i.qty}" class="w-24 bg-transparent border border-white/20 rounded-xl px-3 py-2" />
+                      <button data-remove="${i.id}" class="px-3 py-2 rounded-xl border border-white/20 hover:border-ddpink">Remove</button>
+                    </div>
+                  </div>
+                </div>`).join('')}
+              </div>
+              <aside class="p-6 rounded-2xl border border-white/10 h-fit sticky top-24">
+                <h3 class="font-extrabold text-xl">Order Summary</h3>
+                <div class="mt-3 flex items-center justify-between">
+                  <span class="text-white/70">Subtotal</span>
+                  <span class="font-bold">${formatINR(Cart.total())}</span>
+                </div>
+                <div class="mt-1 flex items-center justify-between text-sm text-white/70">
+                  <span>Shipping</span><span>Free</span>
+                </div>
+                <div class="mt-4 flex items-center justify-between text-lg">
+                  <span class="font-extrabold">Total</span>
+                  <span class="font-black text-ddpink">${formatINR(Cart.total())}</span>
+                </div>
+                <button onclick="navigate('/checkout')" class="mt-6 w-full bg-ddpink text-ddblack font-black px-4 py-3 rounded-xl shadow-punch">Checkout</button>
+                <button id="clear-cart" class="mt-3 w-full px-4 py-3 rounded-xl border border-white/20 hover:border-ddpink">Clear Cart</button>
+              </aside>
+            </div>
+          `}
+        </section>
+      `;
+
+      // listeners
+      root.querySelectorAll('input[id^="qty-"]').forEach(inp=>{
+        inp.addEventListener('change', ()=>{
+          const id = inp.dataset.id; const qty = Math.max(0, parseInt(inp.value||'1'));
+          Cart.set(id, qty);
+          renderCart(root); // re-render
+        });
+      });
+      root.querySelectorAll('[data-remove]').forEach(btn=>{
+        btn.addEventListener('click', ()=>{ Cart.set(btn.dataset.remove, 0); renderCart(root); });
+      });
+      const clearBtn = root.querySelector('#clear-cart');
+      if (clearBtn) clearBtn.addEventListener('click', ()=>{ Cart.clear(); renderCart(root); });
+    }
+
+    function renderCheckout(root){
+      const items = Cart.items();
+      if (items.length===0){ navigate('/cart'); return; }
+      const total = Cart.total();
+      root.innerHTML = `
+        <section class="pt-10">
+          <h1 class="text-3xl sm:text-4xl font-black">Checkout</h1>
+          <div class="mt-8 grid lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 p-6 rounded-2xl border border-white/10">
+              <h2 class="font-extrabold text-xl">Payment</h2>
+              <div class="mt-4 space-y-4">
+                <label class="flex items-center gap-3">
+                  <input type="radio" name="pay" value="card" checked class="accent-ddpink">
+                  <span class="font-semibold">Test Credit/Debit Card</span>
+                </label>
+                <div id="card-form" class="grid sm:grid-cols-2 gap-4">
+                  <input placeholder="Card Number (4242 4242 4242 4242)" class="bg-transparent border border-white/20 rounded-xl px-3 py-2" />
+                  <input placeholder="Name on Card" class="bg-transparent border border-white/20 rounded-xl px-3 py-2" />
+                  <input placeholder="Expiry (12/34)" class="bg-transparent border border-white/20 rounded-xl px-3 py-2" />
+                  <input placeholder="CVV (123)" class="bg-transparent border border-white/20 rounded-xl px-3 py-2" />
+                </div>
+                <label class="flex items-center gap-3">
+                  <input type="radio" name="pay" value="cod" class="accent-ddpink">
+                  <span class="font-semibold">Cash on Delivery</span>
+                </label>
+              </div>
+              <button id="pay-now" class="mt-6 bg-ddpink text-ddblack font-black px-6 py-3 rounded-xl shadow-punch">Pay Now</button>
+              <p class="text-sm text-white/60 mt-2">This is a demo checkout. No real payment is processed.</p>
+            </div>
+            <aside class="p-6 rounded-2xl border border-white/10 h-fit">
+              <h3 class="font-extrabold text-xl">Order</h3>
+              <div class="divide-y divide-white/10 mt-3">
+                ${items.map(i=>`
+                  <div class="py-3 flex items-center justify-between">
+                    <span class="text-white/80">${i.name} × ${i.qty}</span>
+                    <span class="font-bold">${formatINR(i.price*i.qty)}</span>
+                  </div>
+                `).join('')}
+              </div>
+              <div class="mt-4 flex items-center justify-between text-lg">
+                <span class="font-extrabold">Total</span>
+                <span class="font-black text-ddpink">${formatINR(total)}</span>
+              </div>
+            </aside>
+          </div>
+        </section>
+      `;
+
+      // Payment toggle
+      const radios = root.querySelectorAll('input[name="pay"]');
+      const cardForm = root.querySelector('#card-form');
+      radios.forEach(r=> r.addEventListener('change', ()=>{ cardForm.style.display = (document.querySelector('input[name="pay"]:checked').value==='card')?'grid':'none'; }));
+
+      root.querySelector('#pay-now').addEventListener('click', ()=>{
+        const method = document.querySelector('input[name="pay"]:checked')?.value || 'card';
+        const orderId = 'DD' + Math.random().toString(36).slice(2,8).toUpperCase();
+        Cart.clear();
+        document.getElementById('app').innerHTML = `
+          <section class="pt-16 text-center">
+            <div class="mx-auto w-20 h-20 rounded-2xl bg-ddpink grid place-content-center text-ddblack text-3xl font-black shadow-punch">✔</div>
+            <h2 class="mt-6 text-3xl font-black">Order Successful</h2>
+            <p class="mt-2 text-white/80">Thank you! Your order <span class="font-bold">#${orderId}</span> has been placed via <span class="font-bold">${method === 'cod' ? 'Cash on Delivery' : 'Test Card'}</span>.</p>
+            <div class="mt-6 flex items-center justify-center gap-4">
+              <a href="#/shop" class="px-6 py-3 rounded-xl border border-white/20 hover:border-ddpink">Continue Shopping</a>
+              <a href="#/" class="bg-ddpink text-ddblack font-black px-6 py-3 rounded-xl shadow-punch">Go Home</a>
+            </div>
+          </section>
+        `;
+        updateNavCart();
+      });
+    }
+
+    function renderAbout(root){
+      root.innerHTML = `
+        <section class="pt-10 max-w-3xl">
+          <h1 class="text-3xl sm:text-4xl font-black">About D&D – Defy & Define</h1>
+          <p class="mt-4 text-white/80 leading-relaxed">D&D is a bold, feminist fashion brand built to amplify voices. We craft pieces that don’t whisper—they roar. From boardrooms to block parties, our fits are designed to make space, take space, and celebrate the power of women and allies everywhere.</p>
+          <p class="mt-4 text-white/80 leading-relaxed">Our mantra is simple: <span class="font-black text-ddpink">Wear Your Power</span>. Every thread is a statement, every silhouette a stance. We’re unapologetic, empowering, and loud—because change rarely happens quietly.</p>
+        </section>
+      `;
+    }
+
+    function renderContact(root){
+      root.innerHTML = `
+        <section class="pt-10 max-w-2xl">
+          <h1 class="text-3xl sm:text-4xl font-black">Contact Us</h1>
+          <p class="mt-2 text-white/80">Have a question, collab idea, or just want to hype us up? Slide in.</p>
+          <form id="contact-form" class="mt-6 grid gap-4">
+            <input required name="name" placeholder="Name" class="bg-transparent border border-white/20 rounded-xl px-3 py-2" />
+            <input required type="email" name="email" placeholder="Email" class="bg-transparent border border-white/20 rounded-xl px-3 py-2" />
+            <textarea required name="message" placeholder="Message" rows="5" class="bg-transparent border border-white/20 rounded-xl px-3 py-2"></textarea>
+            <button class="bg-ddpink text-ddblack font-black px-6 py-3 rounded-xl shadow-punch w-fit">Send</button>
+          </form>
+        </section>
+      `;
+
+      root.querySelector('#contact-form').addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(e.target).entries());
+        console.log('Contact message (demo only):', data);
+        e.target.reset();
+        toast('Message sent! We’ll get back soon.');
+      });
+    }
+
+    // Init
+    document.getElementById('year').textContent = new Date().getFullYear();
+    render();
+  </script>
+</body>
+</html>
